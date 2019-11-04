@@ -25,29 +25,30 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
+import javafx.scene.control.Button;
 
 
 public class Main extends Application {
     public static final String APP_NAME = "Everest";
 
+    private Button btnHello;  // Declare a "Button" control
+
     @Override
-    public void start(Stage primaryStage) throws Exception {
-        SettingsLoader settingsLoader = new SettingsLoader();
-        settingsLoader.settingsLoaderThread.join();
+    public void start(Stage primaryStage) {
+        // Construct the "Button" and attach an "EventHandler"
+        btnHello = new Button();
+        btnHello.setText("Say Hello");
+        // Using JDK 8 Lambda Expression to construct an EventHandler<ActionEvent>
+        btnHello.setOnAction(evt -> System.out.println("Hello World!"));
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/homewindow/HomeWindow.fxml"));
-        Parent homeWindow = loader.load();
-        Stage dashboardStage = new Stage();
-        ThemeManager.setTheme(homeWindow);
+        // Construct a scene graph of nodes
+        StackPane root = new StackPane();  // The root of scene graph is a layout node
+        root.getChildren().add(btnHello);  // The root node adds Button as a child
 
-        Rectangle2D screenBounds = Screen.getPrimary().getBounds();
-        dashboardStage.setWidth(screenBounds.getWidth() * 0.83);
-        dashboardStage.setHeight(screenBounds.getHeight() * 0.74);
-
-        dashboardStage.getIcons().add(new Image(getClass().getResource("/assets/Logo.png").toExternalForm()));
-        dashboardStage.setScene(new Scene(homeWindow));
-        dashboardStage.setTitle(APP_NAME);
-        dashboardStage.show();
+        Scene scene = new Scene(root, 300, 100);  // Construct a scene given the root of scene graph
+        primaryStage.setScene(scene);    // The stage sets scene
+        primaryStage.setTitle("Hello");  // Set window's title
+        primaryStage.show();             // Set visible (show it)
     }
 
     public static void main(String args[]) {
