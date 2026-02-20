@@ -1,111 +1,75 @@
-![everestheader](https://user-images.githubusercontent.com/23148259/39124644-c886b47a-4719-11e8-953c-f079b3edb664.png)
+# Everest
 
-Everest _(formerly RESTaurant)_ is an upcoming REST API testing client written in JavaFX.
+![Java](https://img.shields.io/badge/Java-ED8B00?style=flat-square&logo=openjdk&logoColor=white)
+![JavaFX](https://img.shields.io/badge/JavaFX-007396?style=flat-square&logo=java&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
+![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=flat-square)
+![Last Commit](https://img.shields.io/github/last-commit/danielcregg/Everest?style=flat-square)
+
+> **Note:** This repository is a fork of [RohitAwate/Everest](https://github.com/RohitAwate/Everest).
+
+A beautiful, cross-platform REST API testing client built with JavaFX. Everest (formerly RESTaurant) provides a lightweight, native alternative to Electron-based API clients like Postman, with a gorgeous flat design and comprehensive request-building capabilities.
 
 ![home](https://user-images.githubusercontent.com/23148259/45769743-23e5a380-bc5e-11e8-9e45-5ea50342c19f.PNG)
-_Everest running on Windows 10._
-# Why Everest?
-- Everest is written in Java. Thus, it is significantly **lighter on resources and more responsive** than its Electron-based alternatives like _Postman_. It aims to provide the same level of functionality in a lighter, native but equally slick package.
-- Aesthetic is very important. With a **gorgeous, flat design**, Everest is a pleasure to look at and to work with. It is also entirely theme-_able_.
 
-  > I want you to want to use it!
+## Features
 
-- Being a Java application, Everest is inherently **cross-platform**. It will run anywhere there's a JVM.
-- Everest will offer cloud synchronization of your projects powered by [Summit](https://github.com/RohitAwate/Summit). It will be available as a cloud service early next year or you may also choose to self-host it.
-
-# Live Features 🔥
-
-#### All of the most common requests
-GET, POST, PUT, DELETE and PATCH requests. HEAD and OPTIONS coming soon.
-
-#### Comprehensive Request Builder
-- Add request headers.
-- Append query parameters. _(with live preview)_
-- **Syntax highlighting** for JSON and XML, powered by [RichTextFX](https://github.com/FXMisc/RichTextFX).
-- Quickly add key-value pairs for URL-encoded and multipart-form bodies.
- 
-#### View Response Details 
-- HTTP status code, content type, elapsed time, body size.
-- **Visualizer** to view JSON responses graphically. _(Aesthetic improvements coming with Alpha 1.4)_
-- View response headers.
+- **HTTP Methods** -- GET, POST, PUT, DELETE, and PATCH requests
+- **Request Builder** -- Headers, query parameters (with live preview), syntax highlighting for JSON/XML, URL-encoded and multipart-form bodies
+- **Response Viewer** -- Status code, content type, elapsed time, body size, JSON visualizer, and response headers
+- **API Authentication** -- Basic Auth and Digest Auth
+- **Custom Themes** -- Fully themeable via CSS ([theme guide](THEMES.md))
+- **Multi-Tabbing** -- Efficient pseudo tab-switching for low memory footprint
+- **Request History** -- Searchable history with intelligent ranking
 
 ![get](https://user-images.githubusercontent.com/23148259/45769777-3c55be00-bc5e-11e8-9fbc-c8bf93b7dc5d.gif)
-_Making a GET request with Everest._
 
-#### API Authentication
-- Basic Auth
-- Digest Auth
+## Prerequisites
 
-#### Custom Themes
-Everest is entirely theme-_able_ via CSS. For more details, refer [this guide](THEMES.md).
+- **JDK 8** (JDK 9 also supported; JDK 10+ requires separate JavaFX installation)
+- **Maven**
+- **Git**
 
-#### Efficient multi-tabbing
-Everest utilizes a technique called _pseudo tab-switching_ to maintain a low memory footprint even when heavy multi-tabbing. I have written a highly technical piece about this on my [dev.to](https://dev.to/rohit).
+> If using OpenJDK, install OpenJFX separately.
 
-_**Bonus**: The '+' button for adding new tabs is finally live!_
+## Getting Started
 
-#### History
-Everest maintains the history of all the requests made by you. You can search with any of the request's components: the target, the headers, the method, the body or even the files added to the request. Everest will **intelligently rank** the results based on their relevance.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/danielcregg/Everest.git
+   cd Everest
+   ```
 
-![history](https://user-images.githubusercontent.com/23148259/45769890-8a6ac180-bc5e-11e8-8f5e-6704eb0e9aa1.gif)
+2. Build the project:
+   ```bash
+   mvn package
+   ```
 
-_Everest's search feature in action._
+3. Run the application:
+   ```bash
+   mvn exec:java
+   ```
 
-# Upcoming features ⏳
-#### OAuth Support
-Everest will fully support both of the OAuth standards. Work on **OAuth 2.0 is in progress** right now and will be available with Alpha 1.4. OAuth 1.0 will follow next. 
+## Keyboard Shortcuts
 
-#### Everest Project
-- This will be Everest's equivalent of Postman's Collection or Insomnia's Workspace.
-- Will house **named-requests**.
-- Will support **environment variables**. Every request can have its own.
-- Can be exported/imported.
-
-#### Summit
-![summitheader](https://user-images.githubusercontent.com/23148259/45769968-cbfb6c80-bc5e-11e8-95c7-7d418dee54d5.png)
-- [Summit](https://github.com/RohitAwate/Summit) is the synchronization server for Everest.
-- It will allow for synchronization of your Everest Projects across multiple devices and other members of your team.
-- It will use a Node.js-_powered_ RESTful API and Socket.IO.
-- It will be available early next year as a service. You may also choose to self-host Summit.
-
-#### Extension API
-This will allow developers to create extensions for Everest which can for example, sync to Google Drive, or visualize the response bodies in a certain fashion or summon Batman.
-
-#### Mock Server
-This local server can be used to quickly create a mock REST-_ful_ service with the endpoints of your choice, producing the output of your choice.
-
-# Keymap ⌨️
-| Shortcut     | Task                     |
+| Shortcut     | Action                   |
 |--------------|--------------------------|
 | Ctrl + T     | New Tab                  |
-| Ctrl + W     | Close tab                |
+| Ctrl + W     | Close Tab                |
 | Ctrl + H     | Toggle History           |
-| Ctrl + Enter | Send request             |
-| Ctrl + L     | Focus address bar        |
-| Ctrl + M     | Select HTTP method       |
-| Ctrl + F     | Focus history search bar |
-| Alt + P      | Focus Query Params tab   |
-| Alt + A      | Focus Authentication tab |
-| Alt + H      | Focus Headers tab        |
-| Alt + B      | Focus Body tab           |
+| Ctrl + Enter | Send Request             |
+| Ctrl + L     | Focus Address Bar        |
+| Ctrl + M     | Select HTTP Method       |
+| Ctrl + F     | Focus History Search Bar |
+| Alt + P      | Focus Query Params Tab   |
+| Alt + A      | Focus Authentication Tab |
+| Alt + H      | Focus Headers Tab        |
+| Alt + B      | Focus Body Tab           |
 
-# Releases 🚀
-Everest is under active development and you can get the latest alpha build from [Releases](https://github.com/RohitAwate/Everest/releases). Make sure you read the release notes to understand what works and what doesn't, how to report issues and how to run the binary.
+## License
 
-# Building from source 🔨
-Everest uses Maven, so building from the source code is very simple. You need to have a minimum of JDK 8 (9 should also work) installed, along with Maven and Git. If you're using OpenJDK, you will need to install OpenJFX separately. Once you have everything set up, follow these simple steps:
-1. Clone the repository: `git clone https://github.com/RohitAwate/Everest.git`
-2. Enter the repository: `cd Everest`
-3. Build a binary: `mvn package`
-4. Run the binary: `mvn exec:java`
+This project is licensed under the [Apache License 2.0](LICENSE).
 
-**For JDK  10 and above:** JavaFX has been decoupled from the JDK and will need to be installed separately.
+## Acknowledgements
 
-# License ⚖️
-Everest is licensed under the [Apache 2.0 License](LICENSE).
-
-# Suggestions and improvements
-Use these options to reach me:
-- Open a GitHub issue.
-- Email me at rohitawate121@gmail.com.
-- Tweet me [@TheRohitAwate](https://twitter.com/TheRohitAwate).
+Originally created by [Rohit Awate](https://github.com/RohitAwate). See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidelines.
