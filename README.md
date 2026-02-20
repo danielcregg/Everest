@@ -12,6 +12,10 @@ A beautiful, cross-platform REST API testing client built with JavaFX. Everest (
 
 ![home](https://user-images.githubusercontent.com/23148259/45769743-23e5a380-bc5e-11e8-9e45-5ea50342c19f.PNG)
 
+## Overview
+
+Everest is a desktop REST client written entirely in Java using JavaFX for the UI layer. It offers a rich, theme-aware interface for composing and sending HTTP requests, inspecting responses, and managing request history. The application stores history in a local SQLite database and supports full customisation through CSS-based themes.
+
 ## Features
 
 - **HTTP Methods** -- GET, POST, PUT, DELETE, and PATCH requests
@@ -26,7 +30,7 @@ A beautiful, cross-platform REST API testing client built with JavaFX. Everest (
 
 ## Prerequisites
 
-- **JDK 8** (JDK 9 also supported; JDK 10+ requires separate JavaFX installation)
+- **JDK 8** (JDK 9 also supported; JDK 10+ requires a separate JavaFX installation)
 - **Maven**
 - **Git**
 
@@ -34,23 +38,23 @@ A beautiful, cross-platform REST API testing client built with JavaFX. Everest (
 
 ## Getting Started
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/danielcregg/Everest.git
-   cd Everest
-   ```
+### Installation
 
-2. Build the project:
-   ```bash
-   mvn package
-   ```
+```bash
+git clone https://github.com/danielcregg/Everest.git
+cd Everest
+mvn package
+```
 
-3. Run the application:
-   ```bash
-   mvn exec:java
-   ```
+### Usage
 
-## Keyboard Shortcuts
+Run the application with Maven:
+
+```bash
+mvn exec:java
+```
+
+**Keyboard Shortcuts:**
 
 | Shortcut     | Action                   |
 |--------------|--------------------------|
@@ -65,6 +69,18 @@ A beautiful, cross-platform REST API testing client built with JavaFX. Everest (
 | Alt + A      | Focus Authentication Tab |
 | Alt + H      | Focus Headers Tab        |
 | Alt + B      | Focus Body Tab           |
+
+## Tech Stack
+
+| Category       | Technology                                                  |
+|----------------|-------------------------------------------------------------|
+| Language        | [Java 8](https://www.oracle.com/java/)                     |
+| UI Framework    | [JavaFX](https://openjfx.io/) with JFoenix Material Design|
+| HTTP Client     | Jersey (JAX-RS)                                            |
+| Build Tool      | [Maven](https://maven.apache.org/)                         |
+| Database        | SQLite (via JDBC)                                          |
+| JSON Processing | Jackson                                                    |
+| Styling         | CSS3                                                       |
 
 ## License
 
